@@ -5,7 +5,7 @@ function log() {
 
 function handleResponseFromAPI(promise) {
   // resolve promise
-  return promise.then((result) => {
+  promise.then((result) => {
     // console.log(result); // "initResolve"
     return { status: 200, body: 'Success' };
   }).then(function (result) {
