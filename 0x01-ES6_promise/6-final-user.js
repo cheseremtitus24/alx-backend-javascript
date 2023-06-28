@@ -2,18 +2,11 @@ import signUpUser from './4-user-promise';
 import uploadPhoto from './5-photo-reject';
 
 function handleProfileSignup(firstName, lastName, fileName) {
-  // Verify that all inputs are strings
-  if (firstName.constructor === String
-     && lastName.constructor === String && lastName.constructor === String) {
-    // proceed to processing
-    return Promise.allSettled(
-      [signUpUser(firstName, lastName), uploadPhoto(fileName)],
-    ).then((results) => results.map((result) => ({
-      status: result.status,
-      value: result.status === 'fulfilled' ? result.value : result.reason,
-    }))).catch(() => console.log('Signup system offline'));
-  }
+  const promise1 = signUpUser(firstName, lastName);
+  const promise2 = uploadPhoto(fileName);
+  const promises = [promise1, promise2];
 
-  return Error('Inputs must be Strings');
+  return Promise.allSettled(promises)
+    .then((results) => results);
 }
 export default handleProfileSignup;
