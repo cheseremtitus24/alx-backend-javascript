@@ -7,15 +7,13 @@ function handleResponseFromAPI(promise) {
   // resolve promise
   return promise.then((result) => {
     // console.log(result); // "initResolve"
+    log();
     return { status: 200, body: 'Success' };
   })
     .catch(function (result) {
       // console.log(result); // "normalReturn"
-      return new Error();
-    }).finally(function (result) {
       log();
-      // console.log(result);
-      return result;
+      return new Error();
     });
 
 }
