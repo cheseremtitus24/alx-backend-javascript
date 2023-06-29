@@ -1,4 +1,4 @@
-import Currency from './3-currency.js';
+import Currency from './3-currency';
 
 export default class Pricing {
   constructor(amount, currency) {
@@ -8,15 +8,17 @@ export default class Pricing {
 
   // Setters
   set amount(amount) {
-    if (isNaN(amount)) {
+    if (Number.isNaN(amount)) {
       throw new TypeError('Amount must be a number');
     } else {
+      // eslint-disable-next-line no-underscore-dangle
       this._amount = amount;
     }
   }
 
   set currency(currency) {
     if (currency instanceof Currency) {
+      // eslint-disable-next-line no-underscore-dangle
       this._currency = currency;
     } else {
       throw new TypeError('Currency must be a Currency');
@@ -25,14 +27,17 @@ export default class Pricing {
 
   // Getters
   get amount() {
+    // eslint-disable-next-line no-underscore-dangle
     return this._amount;
   }
 
   get currency() {
+    // eslint-disable-next-line no-underscore-dangle
     return this._currency.name;
   }
 
   get currency_code() {
+    // eslint-disable-next-line no-underscore-dangle
     return this._currency.code;
   }
 
@@ -42,10 +47,10 @@ export default class Pricing {
   }
 
   static convertPrice(amount, conversionRate) {
-    if (!isNaN(amount) && !isNaN(conversionRate)) {
+    if (!Number.isNaN(amount) && !Number.isNaN(conversionRate)) {
       return amount * conversionRate;
     }
-    if (isNaN(amount)) {
+    if (Number.isNaN(amount)) {
       throw new TypeError('Amount must be a number');
     } else {
       throw new TypeError('Conversionrate must be a number');
