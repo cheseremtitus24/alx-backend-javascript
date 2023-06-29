@@ -7,6 +7,7 @@ export default class Airport {
   // Setters
   set name(name) {
     if (typeof name === 'string') {
+      // eslint-disable-next-line no-underscore-dangle
       this._name = name;
     } else {
       throw new TypeError('Name must be a string');
@@ -15,6 +16,7 @@ export default class Airport {
 
   set code(code) {
     if (typeof code === 'string') {
+      // eslint-disable-next-line no-underscore-dangle
       this._code = code;
     } else {
       throw new TypeError('Code must be a string');
@@ -23,10 +25,12 @@ export default class Airport {
 
   // Getters
   get name() {
+    // eslint-disable-next-line no-underscore-dangle
     return this._name;
   }
 
   get code() {
+    // eslint-disable-next-line no-underscore-dangle
     return this._code;
   }
 
