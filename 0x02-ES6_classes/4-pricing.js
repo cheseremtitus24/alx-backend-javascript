@@ -31,19 +31,10 @@ export default class Pricing {
     return this._amount;
   }
 
-  get currency() {
-    // eslint-disable-next-line no-underscore-dangle
-    return this._currency.name;
-  }
-
-  get currency_code() {
-    // eslint-disable-next-line no-underscore-dangle
-    return this._currency.code;
-  }
-
   // Methods
   displayFullPrice() {
-    return `${this.amount} ${this.currency} (${this.currency_code})`;
+    // eslint-disable-next-line no-underscore-dangle
+    return `${this.amount} ${this._currency.name} (${this._currency.code})`;
   }
 
   static convertPrice(amount, conversionRate) {
