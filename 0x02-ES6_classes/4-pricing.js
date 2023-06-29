@@ -53,7 +53,7 @@ export default class Pricing {
     if (Number.isNaN(amount)) {
       throw new TypeError('Amount must be a number');
     } else {
-      throw new TypeError('Conversionrate must be a number');
+      throw new TypeError('Conversion rate must be a number');
     }
   }
 }
