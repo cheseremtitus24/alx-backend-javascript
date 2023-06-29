@@ -7,30 +7,18 @@ export default class Car {
 
   // Setter
   set brand(brand) {
-    if (typeof brand === 'string') {
-      // eslint-disable-next-line no-underscore-dangle
-      this._brand = brand;
-    } else {
-      throw new TypeError('brand must be a string');
-    }
+    // eslint-disable-next-line no-underscore-dangle
+    this._brand = brand;
   }
 
   set motor(motor) {
-    if (typeof motor === 'string') {
-      // eslint-disable-next-line no-underscore-dangle
-      this._motor = motor;
-    } else {
-      throw new TypeError('motor must be a string');
-    }
+    // eslint-disable-next-line no-underscore-dangle
+    this._motor = motor;
   }
 
   set color(color) {
-    if (typeof color === 'string') {
-      // eslint-disable-next-line no-underscore-dangle
-      this._color = color;
-    } else {
-      throw new TypeError('color must be a string');
-    }
+    // eslint-disable-next-line no-underscore-dangle
+    this._color = color;
   }
 
   // Getter
@@ -57,6 +45,6 @@ export default class Car {
 
   cloneCar() {
     const Spec = this.constructor[Symbol.species];
-    return new Spec(this.brand, this.motor, this.color);
+    return new Spec();
   }
 }
