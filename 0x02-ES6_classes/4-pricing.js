@@ -21,7 +21,7 @@ export default class Pricing {
       // eslint-disable-next-line no-underscore-dangle
       this._currency = currency;
     } else {
-      throw new TypeError('Currency must be a Currency');
+      throw new TypeError('Currency must be an instance of the Currency class');
     }
   }
 
