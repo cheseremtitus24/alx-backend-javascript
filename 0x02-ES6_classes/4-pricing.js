@@ -25,16 +25,10 @@ export default class Pricing {
     }
   }
 
-  // Getters
-  get amount() {
-    // eslint-disable-next-line no-underscore-dangle
-    return this._amount;
-  }
-
   // Methods
   displayFullPrice() {
     // eslint-disable-next-line no-underscore-dangle
-    return `${this.amount} ${this._currency.name} (${this._currency.code})`;
+    return `${this._amount} ${this._currency.name} (${this._currency.code})`;
   }
 
   static convertPrice(amount, conversionRate) {
