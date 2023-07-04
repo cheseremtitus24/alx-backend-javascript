@@ -11,11 +11,13 @@ export default function createInt8TypedArray(length, position, value) {
   }
   const buffer = new ArrayBuffer(length);
   // create data view to hold a value
-  const int8View = new Int8Array(buffer);
+  //   const int8View = new Int8Array(buffer);
+  let int8DataView;
   try {
-    int8View[position] = value;
+    int8DataView = new DataView(buffer, 0);
+    int8DataView.setInt8(position, value);
   } catch (e) {
     throw RangeError('Position outside range');
   }
-  return buffer;
+  return int8DataView;
 }
