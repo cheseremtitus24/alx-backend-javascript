@@ -4,20 +4,27 @@
  * @param {*} set
  * @param {*} startString
  */
+/* eslint-disable */
 export default function cleanSet(set, startString) {
   let loopFlag = true;
-  let retString = String();
-  for (const item of set) {
+  const toArray = [...set];
+  const result = toArray.filter((obj) => {
+    if (obj.startsWith(startString)) {
+      return true;
+    }
+    return false;
+  });
+  const revString = result.map((item) => {
     if (item.startsWith(startString) && startString.length > 0) {
       if (loopFlag) {
         // console.log(item.replace(startString, ''));
         loopFlag = false;
-        retString += item.replace(startString, '');
-      } else {
-        // console.log(item.replace(startString, 'ferret'));
-        retString += item.replace(startString, '-');
+        return item.replace(startString, '');
       }
+      // console.log(item.replace(startString, 'ferret'));
+      return item.replace(startString, '-');
     }
-  }
-  return retString;
+  });
+
+  return revString.join('');
 }
