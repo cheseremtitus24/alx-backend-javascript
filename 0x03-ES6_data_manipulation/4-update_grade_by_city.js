@@ -1,6 +1,3 @@
-import getStudentsByLocation from './2-get_students_by_loc';
-// utilizes filter function
-
 /**
  studentsListObj:
  [
@@ -27,7 +24,12 @@ export default function updateStudentGradeByCity(studentsListObj, city, newGrade
     //   { id: 1, firstName: 'Guillaume', location: 'San Francisco' },
     //   { id: 5, firstName: 'Serena', location: 'San Francisco' }
     // ]
-    const cityStudents = getStudentsByLocation(studentsListObj, city);
+    const cityStudents = studentsListObj.filter((obj) => {
+      if (obj.location === city) {
+        return true;
+      }
+      return false;
+    });
     /* eslint-disable no-param-reassign */
     const result = cityStudents.map((cobj) => {
       for (const newGObj of newGrades) {
