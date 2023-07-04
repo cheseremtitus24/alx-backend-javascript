@@ -7,7 +7,7 @@ export default function getListStudentIds(myArray) {
       myMap.set(obj.id, obj);
     }
     // use of the splice operator
-    return [...myMap.keys()];
+    return myMap.keys();
     // return Array.from(myMap.keys())
   }
   return [];
