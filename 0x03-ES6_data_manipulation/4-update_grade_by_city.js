@@ -1,4 +1,8 @@
 import getStudentsByLocation from './2-get_students_by_loc';
+// utilizes filter function
+import getListStudentIds from './1-get_list_student_ids';
+// utilizes map to get list of student ids.
+
 /**
  studentsListObj:
  [
@@ -26,15 +30,18 @@ export default function updateStudentGradeByCity(studentsListObj, city, newGrade
     //   { id: 5, firstName: 'Serena', location: 'San Francisco' }
     // ]
     const cityStudents = getStudentsByLocation(studentsListObj, city);
+    const cityStudIds = getListStudentIds(cityStudents);
     // filter by grade student ID
-    for (const stud of cityStudents) {
+    let count = 0;
+    for (const stud of cityStudIds) {
       for (const sGrade of newGrades) {
-        if (sGrade.studentId === stud.id) {
-          stud.grade = sGrade.grade;
+        if (sGrade.studentId === stud) {
+          cityStudents[count].grade = sGrade.grade;
         } else {
-          stud.grade = defaultGrade;
+          cityStudents[count].grade = defaultGrade;
         }
       }
+      count += 1;
     }
     return cityStudents;
   }
