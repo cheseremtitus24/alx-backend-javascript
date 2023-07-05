@@ -25,6 +25,20 @@ export default function cleanSet(set, startString) {
       return item.replace(startString, '-');
     }
   });
-
-  return revString.join('');
+let tmp = new Set(revString)
+let final = []
+for (let item of Array.from(tmp))
+{
+  try{
+     if (item.length > 0){
+final.push(item)
+  }
+  }
+  catch (e){
+    
+  }
+ 
+}
+  
+  return final.join('');
 }
