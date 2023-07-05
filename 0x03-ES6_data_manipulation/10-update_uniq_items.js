@@ -12,5 +12,5 @@ export default function updateUniqueItems(myMap) {
     return myMap;
   }
 
-  throw TypeError('Parameter Input Must be a Map');
+  throw new Error('Cannot proces');
 }
